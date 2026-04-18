@@ -40,7 +40,10 @@
   counter(page).update(1)
 
   set page(
-    header: block(width: 100%, stroke: (bottom: .5pt), align(center, text(size: zh("小五"), title))),
+    header: block(width: 100%, stroke: (bottom: .5pt), inset: (bottom: .15em), align(center, text(
+      size: zh("小五"),
+      title,
+    ))),
     footer: context align(center, {
       set text(size: zh("小五"))
       counter(page).display()
