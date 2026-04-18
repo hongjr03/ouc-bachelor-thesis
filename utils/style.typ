@@ -5,7 +5,7 @@
 
 #let global-style(
   fonts: (:),
-  body
+  body,
 ) = {
   set text(lang: "zh", region: "cn")
   set text(font: fonts.宋体, size: zh("小四"))
@@ -36,11 +36,15 @@
 
 #let apply-style(title: "", body) = {
   show: chap-num
-  
+
   counter(page).update(1)
-  
+
   set page(
     header: block(width: 100%, stroke: (bottom: .5pt), align(center, text(size: zh("小五"), title))),
+    footer: context align(center, {
+      set text(size: zh("小五"))
+      counter(page).display()
+    }),
   )
 
   set heading(numbering: "1.1")
