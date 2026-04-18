@@ -2,7 +2,28 @@
 #import "components/abstract.typ": abstract
 #import "components/outline.typ": outline
 #import "utils/style.typ": apply-style, global-style
-#import "utils/fonts.typ": 字体 as 默认字体, setup-fonts
+#import "utils/fonts.typ": setup-fonts, 字体 as 默认字体
+#import "@preview/valkyrie:0.2.2" as z
+
+#let info-schema = z.dictionary((
+  title: z.dictionary((
+    zh: z.string(),
+    en: z.string(),
+  )),
+  author: z.string(),
+  student-id: z.string(),
+  advisor: z.string(),
+  college: z.string(),
+  department: z.string(),
+  abstract-content: z.dictionary((
+    zh: z.any(),
+    en: z.any(),
+  )),
+  keywords: z.dictionary((
+    zh: z.array(z.string()),
+    en: z.array(z.string()),
+  )),
+))
 
 #let project(
   title: (:),
@@ -16,6 +37,20 @@
   fonts: 默认字体,
   body,
 ) = {
+  let _ = z.parse(
+    (
+      title: title,
+      author: author,
+      student-id: student-id,
+      advisor: advisor,
+      college: college,
+      department: department,
+      abstract-content: abstract-content,
+      keywords: keywords,
+    ),
+    info-schema,
+  )
+
   // 把传入的纯字体名称转换为带有中西文 fallback 配置的实际可用字体数组
   let resolved-fonts = setup-fonts(fonts)
 
@@ -29,7 +64,7 @@
     department: department,
     fonts: resolved-fonts,
   )
-  
+
   // 全局样式
   show: global-style.with(fonts: resolved-fonts)
 
