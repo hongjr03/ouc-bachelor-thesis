@@ -37,7 +37,6 @@
 
 最早的卷积神经网络可以追溯到 20 世纪 80 年代，日本科学家福岛邦彦提出了一个包含卷积层、池化层的神经网络结构 Neocognitron @fukushima1982。1998 年，Yann Lecun 在论文中提出了 LeNet-5 @lecun1998，该方法将 BP 算法运用于神经网络中，使其包含了最基本的卷积层、池化层以及全连接层，至此，卷积神经网络雏形基本形成。到了 2012 年，Alex Krizhevsky 在论文中发表了 AlexNet @krizhevsky2012，它比 LeNet 使用了更深更宽的网络结构，使用 Relu 作为激活函数并采用了全新的 dropout 方法，在当年的 ImageNet 竞赛中大放异彩。AlexNet 之后，卷积神经网络进入了快速发展时期，比如牛津大学的 VGG @simonyan2014，在 AlexNet 的基础上进一步加深了网络结构，以及 Google 的 Google Net @szegedy2015 和微软提出的 ResNet @he2016 等都是卷积神经网络中具有代表性的网络结构。
 
-#pagebreak()
 
 = 示例章节
 
@@ -81,8 +80,6 @@ $
   = lim_(x -> 0) e^x / 2
   = 1/2
 $
-
-#pagebreak()
 
 #bibliography("references.bib")
 

@@ -2,6 +2,6 @@
 
 #let bibliography(
   bib-file,
-) = {
+) = page({
   std.bibliography("/" + bib-file, style: "gb-7714-2015-numeric")
-}
+})
