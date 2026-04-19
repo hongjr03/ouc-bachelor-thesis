@@ -1,4 +1,4 @@
-#import "@preview/unofficial-ouc-bachelor-thesis:0.1.0": acknowledgments, bibliography, project
+#import "@preview/unofficial-ouc-bachelor-thesis:0.1.0": acknowledgments, project
 
 #show: project.with(
   title: (
@@ -108,7 +108,7 @@ $ <eq:limit>
   - 这是一个二级枚举列表项。
     - 这是一个三级枚举列表项。
 
-#bibliography("references.bib")
+#bibliography("references.bib", style: "gb-7714-2015-numeric")
 
 #acknowledgments()[
   在论文的最后我想向所有帮助支持过我的亲人、朋友、老师致以崇高的敬意和真诚的感谢，感谢你们在我的学习和科研中给予的生活和工作的支持。

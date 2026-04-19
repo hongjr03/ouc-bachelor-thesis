@@ -31,7 +31,7 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.1.0
 初始化的项目会包含 `main.typ` 示例文件。此时你需要通过 `project.with` 注入论文的基础信息：
 
 ```typst
-#import "@preview/unofficial-ouc-bachelor-thesis:0.1.0": project, bibliography, acknowledgments
+#import "@preview/unofficial-ouc-bachelor-thesis:0.1.0": project, acknowledgments
 
 #show: project.with(
   title: (
@@ -67,9 +67,11 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.1.0
 ```text
 .
 ├── typst.toml              # 包的元数据信息
-├── main.typ                # 示例论文
+├── template/               # 用户通过 init 初始化的所有文件
+│   ├── main.typ            # 示例论文
+│   ├── references.bib      # 示例参考文献 BibTeX 数据库
+│   └── assets/             # 静态资源副本（如校徽 Logo）
 ├── template.typ            # (核心) 模板导出中心组件，暴露黑盒接口
-├── references.bib          # 示例参考文献 BibTeX 数据库
 ├── components/             # 页面排版组件：封面、摘要、目录、致谢等
 ├── utils/                  # 工具类：字体处理、页码/标题编号、内置三线表等
 ├── assets/                 # 核心静态资源库（如校徽 Logo 等）

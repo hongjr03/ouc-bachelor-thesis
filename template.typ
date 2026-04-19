@@ -1,7 +1,6 @@
 #import "components/cover.typ": cover
 #import "components/abstract.typ": abstract
 #import "components/outline.typ": outline
-#import "components/bibliography.typ": bibliography
 #import "components/acknowledgments.typ": acknowledgments
 #import "utils/style.typ": apply-style, global-style
 #import "utils/fonts.typ": fonts as default-fonts, setup-fonts
