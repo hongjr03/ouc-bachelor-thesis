@@ -24,7 +24,7 @@
   ))
 }
 
-#let cover-title(title: "你的论文标题", fonts: (:)) = {
+#let cover-title(fonts: (:)) = {
   set text(font: fonts.宋体, size: zh("小初"))
 
   align(center, fakebold(
@@ -33,9 +33,9 @@
 
   v(0.5cm)
 
-  set text(font: fonts.黑体, size: zh("一号"))
+  show std.title: set text(font: fonts.黑体, size: zh("一号"))
 
-  align(center, title)
+  align(center, std.title())
 }
 
 #let underline-box(c, width, stroke: (bottom: 0.5pt)) = box(width: 1fr, move(dy: .21em, box(
@@ -46,7 +46,6 @@
 
 #let thesis-info(
   author: "",
-  student-id: "",
   advisor: "",
   college: "",
   department: "",
@@ -68,7 +67,7 @@
       row-gutter: .95em,
       stroke: none,
       align: center,
-      bold[学生姓名] + underline-box(author, 1fr) + bold[学号] + underline-box(student-id, 1fr),
+      bold[学生姓名] + underline-box(author.name, 1fr) + bold[学号] + underline-box(author.id, 1fr),
       bold[指导教师] + underline-box(advisor, 1fr),
       bold[院、系、中心] + underline-box(college, 1fr),
       bold[专业年级] + underline-box(department, 1fr),
@@ -85,8 +84,8 @@
 
 #let cover(
   title: "",
-  author: "",
-  student-id: "",
+  name: "",
+  id: "",
   advisor: "",
   college: "",
   department: "",
@@ -96,13 +95,12 @@
 
   v(6.27cm)
 
-  cover-title(title: title, fonts: fonts)
+  cover-title(fonts: fonts)
 
   v(4.65cm)
 
   thesis-info(
-    author: author,
-    student-id: student-id,
+    author: (name: name, id: id),
     advisor: advisor,
     college: college,
     department: department,

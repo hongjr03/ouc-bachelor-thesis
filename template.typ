@@ -11,8 +11,10 @@
     zh: z.string(),
     en: z.string(),
   )),
-  author: z.string(),
-  id: z.string(),
+  author: z.dictionary((
+    name: z.string(),
+    id: z.string(),
+  )),
   advisor: z.string(),
   college: z.string(),
   department: z.string(),
@@ -28,8 +30,7 @@
 
 #let project(
   title: (:),
-  author: "",
-  id: "",
+  author: (name: "", id: ""),
   advisor: "",
   college: "",
   department: "",
@@ -42,12 +43,10 @@
     (
       title: title,
       author: author,
-      id: id,
       advisor: advisor,
       college: college,
       department: department,
       abstract: abstract,
-      acknowledgments: acknowledgments,
       keywords: keywords,
     ),
     info-schema,
@@ -56,11 +55,13 @@
   // 把传入的纯字体名称转换为带有中西文 fallback 配置的实际可用字体数组
   let resolved-fonts = setup-fonts(fonts)
 
+  set document(title: title.zh, author: author.name, keywords: keywords.zh, description: abstract.zh)
+
   // 封面
   cover(
     title: title.zh,
-    author: author,
-    student-id: id,
+    name: author.name,
+    id: author.id,
     advisor: advisor,
     college: college,
     department: department,
