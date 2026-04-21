@@ -25,11 +25,15 @@ jobs:
       - name: Install Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Download and install ZhongYi fonts
+      - name: Download and install Chinese fonts
         run: |
-          git clone --depth 1 --branch zhongyi-fonts-mirror https://github.com/hongjr03/scripts.git /tmp/font-repo
-          mkdir -p "$HOME/.local/share/fonts/zhongyi"
-          cp -r /tmp/font-repo/fonts/zhongyi/. "$HOME/.local/share/fonts/zhongyi/"
+          curl -fL "https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip" -o /tmp/cn-thesis-fonts.zip
+          rm -rf /tmp/cn-thesis-fonts
+          mkdir -p /tmp/cn-thesis-fonts
+          unzip -q /tmp/cn-thesis-fonts.zip -d /tmp/cn-thesis-fonts
+
+          mkdir -p "$HOME/.local/share/fonts/cn-thesis"
+          find /tmp/cn-thesis-fonts -type f \( -iname '*.ttf' -o -iname '*.otf' -o -iname '*.ttc' \) -exec cp {} "$HOME/.local/share/fonts/cn-thesis/" \;
           fc-cache -f
 
       - name: Rebuild examples images
