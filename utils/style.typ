@@ -33,6 +33,8 @@
   show figure.where(kind: table): set figure.caption(position: top)
   show table: three-line-table
 
+  show bibliography: it => pagebreak(weak: true) + it
+
   body
 }
 
