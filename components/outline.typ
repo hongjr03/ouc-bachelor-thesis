@@ -1,4 +1,5 @@
 #import "@preview/pointless-size:0.1.2": zh
+#import "@preview/cuti:0.4.0": fakebold
 
 #let outline() = page({
   set std.outline.entry(fill: repeat(sym.dot))
@@ -7,7 +8,7 @@
       set text(size: zh("四号"))
       link(
         it.element.location(),
-        it.indented(it.prefix(), it.inner()),
+        fakebold(it.indented(it.prefix(), it.inner())),
       )
     } else {
       set text(size: zh("小四"))
