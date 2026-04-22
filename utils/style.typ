@@ -8,14 +8,27 @@
 #let global-style(
   fonts: (:),
   body,
-) = {
+) = context {
   set text(lang: "zh", region: "cn")
-  set text(font: fonts.宋体, size: zh("小四"), top-edge: "ascender", bottom-edge: "descender")
-  set par(leading: 24pt - zh("小四"), first-line-indent: (amount: 2em, all: true))
+  set text(font: fonts.宋体, size: zh("小四"))
+  set par(
+    leading: 24pt
+      - zh("小四")
+      + (
+        measure(text(font: fonts.宋体, size: zh("小四"), top-edge: "ascender", bottom-edge: "descender")[你]).height
+          - measure(text(
+            font: fonts.宋体,
+            size: zh("小四"),
+            top-edge: "cap-height",
+            bottom-edge: "baseline",
+          )[你]).height
+      ),
+    first-line-indent: (amount: 2em, all: true),
+  )
 
   show heading: it => {
     set text(font: fonts.黑体, weight: "bold")
-    set block(spacing: 1em)
+    set block(spacing: 1.5em)
     if it.level == 1 {
       set text(size: zh("三号"))
       // Note: headings are block elements so it.body acts normally, but we can set align here:
@@ -77,7 +90,16 @@
     lang: false,
   )
 
-  show: default-enum-list
+  // show raw.where(block: true): set text(bottom-edge: "baseline", top-edge: "ascender")
+
+  show raw.where(block: false): it => {
+    set text(size: .9em)
+    box(inset: (x: .25em), fill: luma(240), outset: (y: .25em), radius: .25em, it)
+  }
+
+  show: default-enum-list.with(auto-resuming: auto, indent: 1em, label-width: .55em, body-indent: .35em)
+
+  // show link: it => underline(text(blue, it))
 
   body
 }
