@@ -1,4 +1,5 @@
 # （非官方）中国海洋大学本科毕业论文 Typst 模板
+</a> <a href="https://typst.app/universe/package/unofficial-ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Funofficial-ouc-bachelor-thesis&amp;query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&amp;logo=typst&amp;label=Universe&amp;color=%2339cccc" alt="Universe" /> </a><a href="https://github.com/hongjr03/ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhongjr03%2Fouc-bachelor-thesis%2Frefs%2Fheads%2Fmain%2Ftypst.toml&amp;query=package.version&amp;logo=GitHub&amp;label=GitHub" alt="GitHub" /></a>
 
 基于 [Typst](https://typst.app/) 编写的中国海洋大学本科毕业论文模板。根据[中国海洋大学本科毕业论文（设计）撰写规范及附表（2026）](https://jwc.ouc.edu.cn/_upload/article/files/5a/2d/739028b94008954fabb295e513d8/1d6f220a-7701-49c4-8084-16a8f20fb41a.doc) 的要求制作。
 
@@ -42,12 +43,15 @@
 
 可以通过 Typst 命令行快速初始化论文项目：
 
+<!-- README_INIT_CMD:BEGIN -->
 ```bash
 typst init @preview/unofficial-ouc-bachelor-thesis:0.1.0
 ```
+<!-- README_INIT_CMD:END -->
 
 初始化的项目会包含 `main.typ` 示例文件。此时你需要通过 `project.with` 注入论文的基础信息：
 
+<!-- README_MAIN_TYP:BEGIN -->
 ```typst
 #import "@preview/unofficial-ouc-bachelor-thesis:0.1.0": acknowledgments, project
 
@@ -87,24 +91,7 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.1.0
   听我说谢谢你
 ]
 ```
-
-## 目录结构
-
-如果需要对模板样式进行深度定制，可以了解本模板的结构划分：
-
-```text
-.
-├── typst.toml              # 包的元数据信息
-├── template/               # 用户通过 init 初始化的所有文件
-│   ├── main.typ            # 示例论文
-│   ├── references.bib      # 示例参考文献 BibTeX 数据库
-│   └── assets/             # 静态资源副本（如校徽 Logo）
-├── template.typ            # (核心) 模板导出中心组件，暴露黑盒接口
-├── components/             # 页面排版组件：封面、摘要、目录、致谢等
-├── utils/                  # 工具类：字体处理、页码/标题编号、内置三线表等
-├── assets/                 # 核心静态资源库（如校徽 Logo 等）
-└── README.md
-```
+<!-- README_MAIN_TYP:END -->
 
 ## 许可证
 

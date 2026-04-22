@@ -48,7 +48,7 @@ jobs:
           rm -f examples/*.png
           typst compile ./template/main.typ --format png "examples/{p}.png"
 
-      - name: Update README examples section
+      - name: Update README examples and main.typ snippet
         shell: bash
         run: |
           set -euo pipefail
@@ -82,6 +82,46 @@ jobs:
               <$fh>;
             };
             s@(## 效果预览\s*\n\s*以下是本模板渲染后的论文效果展示。所有预览图片可通过 `examples` 文件夹查看。\s*\n).*?(\n## 快速开始)@$1$gallery\n$2@s;
+          ' README.md
+
+          pkg_name=$(sed -n 's/^name = "\([^"]\+\)"/\1/p' typst.toml | head -n 1)
+          pkg_version=$(sed -n 's/^version = "\([^"]\+\)"/\1/p' typst.toml | head -n 1)
+
+          if [[ -z "${pkg_name:-}" || -z "${pkg_version:-}" ]]; then
+            echo "Failed to read package name/version from typst.toml" >&2
+            exit 1
+          fi
+
+          init_cmd="typst init @preview/${pkg_name}:${pkg_version}"
+
+          INIT_CMD="$init_cmd" perl -0777 -i -pe '
+            my $init_cmd = $ENV{"INIT_CMD"};
+            die "INIT_CMD is empty" unless defined $init_cmd && length $init_cmd;
+
+            my $begin = "<!-- README_INIT_CMD:BEGIN -->";
+            my $end = "<!-- README_INIT_CMD:END -->";
+            my $pattern = qr/\Q$begin\E\s*\n\x60\x60\x60bash\n.*?\n\x60\x60\x60\s*\n\Q$end\E/s;
+
+            die "README init command marker block not found" unless /$pattern/;
+            s@$pattern@$begin\n\x60\x60\x60bash\n$init_cmd\n\x60\x60\x60\n$end@s;
+          ' README.md
+
+          cp template/main.typ /tmp/readme-main.typ
+
+          perl -0777 -i -pe '
+            my $main = do {
+              local $/;
+              open my $fh, "<", "/tmp/readme-main.typ" or die $!;
+              <$fh>;
+            };
+            $main .= "\n" unless $main =~ /\n\z/;
+
+            my $begin = "<!-- README_MAIN_TYP:BEGIN -->";
+            my $end = "<!-- README_MAIN_TYP:END -->";
+            my $pattern = qr/\Q$begin\E\s*\n\x60\x60\x60typst\n.*?\n\x60\x60\x60\s*\n\Q$end\E/s;
+
+            die "README main.typ marker block not found" unless /$pattern/;
+            s@$pattern@$begin\n\x60\x60\x60typst\n$main\x60\x60\x60\n$end@s;
           ' README.md
 
       - name: Commit and push if changed
