@@ -49,6 +49,8 @@
   show raw: set text(font: fonts.等宽)
   show raw.where(block: true): set par(leading: .65em)
 
+  show math.equation: set text(font: fonts.数学)
+  
   show strong: it => context {
     if "simsun" in text.font {
       fakebold(it)
@@ -63,8 +65,12 @@
       it
     }
   }
+
+
   show bibliography: it => pagebreak(weak: true) + it
   show figure: set block(breakable: true)
+
+
   body
 }
 

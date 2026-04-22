@@ -54,6 +54,12 @@ jobs:
           find /tmp/cn-thesis-fonts -type f \( -iname '*.ttf' -o -iname '*.otf' -o -iname '*.ttc' \) -exec cp {} "$HOME/.local/share/fonts/cn-thesis/" \;
           fc-cache -f
 
+      - name: Install monospace fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-liberation fonts-noto-mono
+          fc-cache -f
+
       - name: Determine and check package metadata
         run: |
           . scripts/setup
