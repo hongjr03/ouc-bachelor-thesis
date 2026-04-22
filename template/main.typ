@@ -2,7 +2,7 @@
 
 #show: project.with(
   title: (
-    zh: "基于唱跳说唱篮球的舞蹈练习",
+    zh: ("城市空气质量时空分布特征", "及其影响因素分析"),
     en: "The Practice of Dance Based on Singing, Dancing, Rapping and Basketball",
   ),
   author: (name: "蔡徐坤", id: "123456789"),

@@ -24,7 +24,7 @@
   ))
 }
 
-#let cover-title(fonts: (:)) = {
+#let cover-title(fonts: (:), title: "") = {
   set text(font: fonts.宋体, size: zh("小初"))
 
   align(center, fakebold(
@@ -33,9 +33,8 @@
 
   v(0.5cm)
 
-  show std.title: set text(font: fonts.黑体, size: zh("一号"))
 
-  align(center, std.title())
+  align(center, text(font: fonts.黑体, size: zh("一号"), if type(title) == str { title } else { title.join("\n") }))
 }
 
 #let underline-box(c, width, stroke: (bottom: 0.5pt)) = box(width: 1fr, move(dy: .21em, box(
@@ -96,7 +95,7 @@
 
     v(6.27cm)
 
-    cover-title(fonts: fonts)
+    cover-title(fonts: fonts, title: title)
 
     v(4.65cm)
 

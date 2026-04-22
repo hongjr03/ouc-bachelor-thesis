@@ -8,7 +8,7 @@
 
 #let info-schema = z.dictionary((
   title: z.dictionary((
-    zh: z.string(),
+    zh: z.either(z.string(), z.array(z.string())),
     en: z.string(),
   )),
   author: z.dictionary((
@@ -55,7 +55,14 @@
   // 把传入的纯字体名称转换为带有中西文 fallback 配置的实际可用字体数组
   let resolved-fonts = setup-fonts(fonts)
 
-  set document(title: title.zh, author: author.name, keywords: keywords.zh, description: abstract.zh)
+  let title-str = (zh: if type(title.zh) == str { title.zh } else { title.zh.join() }, en: title.en)
+
+  set document(
+    title: title-str.zh,
+    author: author.name,
+    keywords: keywords.zh,
+    description: abstract.zh,
+  )
 
   // 封面
   cover(
@@ -73,7 +80,7 @@
 
   // 摘要
   a.abstract(
-    title: title,
+    title: title-str,
     abstract: abstract,
     keywords: keywords,
     fonts: resolved-fonts,
@@ -83,7 +90,8 @@
   outline()
 
   // 正文样式与内容
-  show: apply-style.with(title: title.zh)
+  show: apply-style.with(title: title-str.zh)
+
 
   body
 }
