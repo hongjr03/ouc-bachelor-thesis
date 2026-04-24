@@ -48,7 +48,7 @@
   advisor: "",
   college: "",
   department: "",
-  defense-date: datetime.today(),
+  defense-date: none,
   fonts: (:),
 ) = {
   set text(font: fonts.宋体, size: zh("四号"), lang: "zh", region: "cn")
