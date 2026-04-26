@@ -25,6 +25,9 @@
       ),
     first-line-indent: (amount: 2em, all: true),
   )
+  show figure: set par(leading: .65em)
+  show table: set par(leading: .65em)
+  show raw.where(block: true): set par(leading: .65em)
 
   show heading: it => {
     set text(font: fonts.黑体, weight: "bold")
