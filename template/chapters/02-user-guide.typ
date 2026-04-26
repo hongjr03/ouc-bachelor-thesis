@@ -47,6 +47,20 @@
 
     这段时光中，我要特别感谢指导老师在选题、研究方法和论文写作上的悉心指导；感谢同学和朋友在我碰到问题时给予帮助；最后特别感谢我的父母，感谢你们对我学习生涯的支持与鼓励。
   ],
+  config: (
+    fonts: (
+      宋体: "SimSun",
+      黑体: "SimHei",
+      楷体: "KaiTi",
+      仿宋: "FangSong",
+      西文: "Times New Roman",
+      等宽: ("Consolas", "Courier New", "SimSun"),
+    ),
+    numbering: (
+      (figure.where(kind: raw), figure, "1-1"),
+      (figure.where(kind: "algorithm"), figure, "1-1"),
+    ),
+  ),
 )
 ```
 
@@ -60,18 +74,26 @@
 - `abstract` 和 `keywords` 同样支持中英文输入，其中 `keywords` 的中文和英文部分都是字符串数组，表示多个关键词；
 - `bibliography` 字段可以直接读取 `.bib` 文件，但一定不要忘记使用 `read()` 函数来读取文件内容，否则它会被当成普通字符串处理；
 - `acknowledgments` 则是直接输入内容。
-- `fonts` 字段允许你传入一个字体配置对象，来覆盖默认的字体设置，如果你不传入这个字段，模板会使用内置的默认字体配置。如果需要自定义，请参考：
+- `config` 字段用于集中覆盖模板的可配置项。当前支持 `fonts` 和 `numbering` 两部分：
 
   ```typ
-  #let fonts = (
-    宋体: "SimSun",
-    黑体: "SimHei",
-    楷体: "KaiTi",
-    仿宋: "FangSong",
-    西文: "Times New Roman",
-    等宽: ("Consolas", "Courier New", "SimSun"),
+  config: (
+    fonts: (
+      宋体: "SimSun",
+      黑体: "SimHei",
+      楷体: "KaiTi",
+      仿宋: "FangSong",
+      西文: "Times New Roman",
+      等宽: ("Consolas", "Courier New", "SimSun"),
+    ),
+    numbering: (
+      (figure.where(kind: raw), figure, "1-1"),
+      (figure.where(kind: "algorithm"), figure, "1-1"),
+    ),
   )
   ```
+
+  其中 `config.fonts` 会覆盖默认字体映射，不传时继续使用模板内置配置；`config.numbering` 中的每一项都形如 `(选择器, 目标元素, 编号格式)`，只负责编号模式本身。如果你只想恢复默认行为，删掉对应子项即可。
 
 在 `main.typ` 的后半部分，我们使用了 `#include` 指令来引入了两个章节的内容：
 
@@ -89,3 +111,44 @@
 
 当然，如果你不习惯使用 `#include` 来引入章节内容，你也可以直接把章节的内容写在 `main.typ` 中。
 
+== 社区包示例
+
+Typst Universe 里有很多现成的组件可以直接拿来扩展正文。例如 #link("https://typst.app/universe/package/lovelace/")[lovelace] 可以把嵌套列表排版成伪代码，很适合课程设计、算法描述和实验流程说明。
+
+#figure(
+  ````typ
+  #import "@preview/lovelace:0.3.1": pseudocode-list
+
+  #pseudocode-list[
+    + *procedure* Merge-Sort(arr)
+    + *if* len(arr) <= 1 *then*
+      + *return* arr
+    + *end*
+    + mid := floor(len(arr) / 2)
+    + left := Merge-Sort(arr[..mid])
+    + right := Merge-Sort(arr[mid..])
+    + *return* Merge(left, right)
+  ]
+  ````,
+  caption: "使用 lovelace 编写伪代码",
+) <lovelace-code>
+
+#import "@preview/lovelace:0.3.1": pseudocode-list
+
+#figure(
+  kind: "algorithm",
+  supplement: [算法],
+  pseudocode-list[
+    + *procedure* Merge-Sort(arr)
+    + *if* len(arr) <= 1 *then*
+      + *return* arr
+    + *end*
+    + mid := floor(len(arr) / 2)
+    + left := Merge-Sort(arr[..mid])
+    + right := Merge-Sort(arr[mid..])
+    + *return* Merge(left, right)
+  ],
+  caption: "lovelace 渲染效果示例",
+) <lovelace-example>
+
+@lovelace-example 展示了渲染后的伪代码效果。这里使用的是 Typst Universe 页面截至 2026 年 4 月 26 日展示的 `0.3.1` 版本导入方式；如果后续版本升级，只要把 `#import` 里的版本号一起更新即可。

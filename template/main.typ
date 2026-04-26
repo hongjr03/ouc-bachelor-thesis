@@ -27,6 +27,20 @@
 
     这段时光中，我要特别感谢指导老师在选题、研究方法和论文写作上的悉心指导；感谢同学和朋友在我碰到问题时给予帮助；最后特别感谢我的父母，感谢你们对我学习生涯的支持与鼓励。
   ],
+  config: (
+    fonts: (
+      宋体: "SimSun",
+      黑体: "SimHei",
+      楷体: "KaiTi",
+      仿宋: "FangSong",
+      西文: "Times New Roman",
+      等宽: ("Consolas", "Courier New", "SimSun"),
+    ),
+    numbering: (
+      (figure.where(kind: raw), figure, "1-1"),
+      (figure.where(kind: "algorithm"), figure, "1-1"),
+    ),
+  ),
 )
 
 = 绪论
