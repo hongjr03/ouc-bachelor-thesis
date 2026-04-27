@@ -1,5 +1,4 @@
 #import "@preview/pointless-size:0.1.2": zh
-#import "@preview/cuti:0.4.0": fakebold
 #import "/components/logo.typ": logo
 
 #let empty-underline(width: 100%) = box("", width: width, stroke: (bottom: 0.5pt))
@@ -16,8 +15,8 @@
       row-gutter: .65em,
       stroke: none,
       align: center,
-      fakebold[分类号], empty-underline(),
-      fakebold[密级], empty-underline(),
+      [*分类号*], empty-underline(),
+      [*密级*], empty-underline(),
       [*UDC*], table.cell(colspan: 3, empty-underline()),
     ),
     place(right + top, dy: -2em, logo),
@@ -27,7 +26,7 @@
 #let cover-title(fonts: (:), title: "") = {
   set text(font: fonts.宋体, size: zh("小初"))
 
-  align(center, fakebold(
+  align(center, strong(
     "本科毕业论文".clusters().join(h(.4em)) + "（设计）",
   ))
 
@@ -109,7 +108,7 @@
 
     v(.2cm)
 
-    align(center, fakebold(text(font: fonts.楷体, size: zh("小二"), "中国海洋大学".clusters().join(h(.5em)))))
+    align(center, strong(text(font: fonts.楷体, size: zh("小二"), "中国海洋大学".clusters().join(h(.5em)))))
   },
   // background: image("/1d6f220a-7701-49c4-8084-16a8f20fb41a(1).pdf", page: 5),
 )

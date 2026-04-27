@@ -71,6 +71,9 @@
     description: abstract.zh,
   )
 
+  // 全局样式
+  show: global-style.with(fonts: resolved-fonts)
+
   // 封面
   cover(
     title: title.zh,
@@ -81,9 +84,6 @@
     department: department,
     fonts: resolved-fonts,
   )
-
-  // 全局样式
-  show: global-style.with(fonts: resolved-fonts)
 
   // 摘要
   a.abstract(
