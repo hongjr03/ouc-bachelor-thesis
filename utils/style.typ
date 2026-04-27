@@ -33,7 +33,6 @@
     set text(font: fonts.黑体, weight: "bold")
     set block(spacing: 1.5em)
     if it.level == 1 {
-      pagebreak(weak: true)
       set text(size: zh("三号"))
       // Note: headings are block elements so it.body acts normally, but we can set align here:
       if it.numbering != none {
@@ -101,6 +100,12 @@
   )
 
   set heading(numbering: "1.1")
+
+  show heading.where(level: 1): it => {
+    pagebreak(weak: true)
+    it
+  }
+
   show: zebraw-init
   show raw.where(block: true): zebraw.with(
     radius: .25em,
