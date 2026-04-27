@@ -12,5 +12,7 @@ package target="@local":
     
     # 使用 rsync 复制所有需要打包的文件，排除不必要的文件和文件夹
     rsync -a --exclude '.git' --exclude '.github' --exclude 'scripts' --exclude 'justfile' --exclude 'out' --exclude 'dist' ./ "$TARGET/"
+
+    cp examples/1.png "$TARGET/thumbnail.png"
     
     echo "Successfully packaged to $TARGET"
