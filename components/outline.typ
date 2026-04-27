@@ -19,7 +19,7 @@
     }
   }
   std.outline(
-    title: "目录".clusters().join(" " * 3),
+    title: "目录".clusters().join(h(.5em * 3)),
     indent: 0em,
   )
 })

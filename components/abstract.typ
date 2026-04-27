@@ -9,7 +9,7 @@
   set heading(numbering: none, bookmarked: false, outlined: false)
   page({
     heading(level: 1, title.zh)
-    heading(level: 1, "摘要".clusters().join(" " * 3))
+    heading(level: 1, "摘要".clusters().join(h(.5em * 3)))
 
     abstract.zh
     parbreak()
