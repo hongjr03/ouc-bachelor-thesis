@@ -107,7 +107,7 @@
 
   pagebreak(weak: true)
 
-  std.bibliography(bytes(bibliography), style: "gb-7714-2015-numeric", full: true)
+  std.bibliography(bytes(bibliography), style: "gb-7714-2015-numeric", full: false)
 
   acks(acknowledgments)
 }
