@@ -113,6 +113,10 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.2.0
 ```
 <!-- README_MAIN_TYP:END -->
 
+## 交流群
+
+![group_qrcode](assets/qrcode_1777349536775.jpg)
+
 ## 许可证
 
 本项目使用 [MIT License](LICENSE) 开源许可证。
