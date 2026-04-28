@@ -43,8 +43,10 @@ This package is an unofficial Typst template for Ocean University of China (OUC)
 ## 快速开始
 
 > [!IMPORTANT]
-> 非 Windows 用户在编译前请先安装中文字体包：
-> https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip
+> 非 Windows 用户在编译前请先安装[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)。
+
+> [!NOTE]
+> 如需在 typst.app 上使用，请下载[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)，解压后直接上传到论文对应 typst.app 文件夹。
 
 可以通过 Typst 命令行快速初始化论文项目：
 
