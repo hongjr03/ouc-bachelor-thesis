@@ -60,7 +60,7 @@
   )
 
   // 把传入的纯字体名称转换为带有中西文 fallback 配置的实际可用字体数组
-  let fonts = default-fonts + config.at("fonts", default: ())
+  let fonts = default-fonts + config.at("fonts", default: (:))
   let resolved-fonts = setup-fonts(fonts)
 
   let title-str = (zh: if type(title.zh) == str { title.zh } else { title.zh.join() }, en: title.en)
