@@ -1,1 +1,4 @@
 *.pdf
+*.html
+site/
+__pycache__/
