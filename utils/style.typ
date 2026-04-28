@@ -26,9 +26,6 @@
     first-line-indent: (amount: 2em, all: true),
     justify: true,
   )
-  show figure: set par(leading: .65em)
-  show table: set par(leading: .65em)
-  show raw.where(block: true): set par(leading: .65em)
 
   show heading: it => {
     set text(font: fonts.黑体, weight: "bold")
@@ -47,8 +44,6 @@
       it
     }
   }
-
-  show figure.where(kind: table): set figure.caption(position: top)
 
   show raw: set text(font: fonts.等宽)
   show raw.where(block: true): set par(leading: .65em)
@@ -69,9 +64,6 @@
       it
     }
   }
-
-  show figure: set block(breakable: false)
-  show figure.where(kind: table): set block(breakable: true)
 
   body
 }
@@ -127,6 +119,15 @@
 
   show: default-enum-list.with(auto-resuming: auto, indent: 1em, label-width: .55em, body-indent: .35em)
 
+
+  show figure.where(kind: table): set figure.caption(position: top)
+  show figure: set par(leading: .65em)
+  show table: set par(leading: .65em)
+  show raw.where(block: true): set par(leading: .65em)
+  show figure: set block(breakable: false)
+  show figure.where(kind: table): set block(breakable: true)
+
+  show figure.caption: set text(size: zh("五号"))
   // show link: it => underline(text(blue, it))
 
   body
