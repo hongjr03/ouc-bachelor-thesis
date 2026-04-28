@@ -5,6 +5,7 @@
 #import "utils/style.typ": apply-style, global-style
 #import "utils/fonts.typ": fonts as default-fonts, setup-fonts
 #import "@preview/valkyrie:0.2.2" as z
+#import "@preview/gb7714-bilingual:0.2.3": gb7714-bibliography, init-gb7714, multicite
 
 #let info-schema = z.dictionary((
   title: z.dictionary((
@@ -101,13 +102,13 @@
     title: title-str.zh,
     chap-num-config: config.at("numbering", default: (:)),
   )
-
+  show: init-gb7714.with(bytes(bibliography), style: "numeric", version: "2015")
 
   body
 
   pagebreak(weak: true)
 
-  std.bibliography(bytes(bibliography), style: "gb-7714-2015-numeric", full: false)
+  gb7714-bibliography(full: false)
 
   acks(acknowledgments)
 }
