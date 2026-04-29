@@ -1,7 +1,7 @@
 # （非官方）中国海洋大学本科毕业论文 Typst 模板
 
-<a href="https://typst.app/universe/package/unofficial-ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Funofficial-ouc-bachelor-thesis&amp;query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&amp;logo=typst&amp;label=Universe&amp;color=%2339cccc" alt="Universe" /></a>
-<a href="https://github.com/hongjr03/ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhongjr03%2Fouc-bachelor-thesis%2Frefs%2Fheads%2Fmaster%2Ftypst.toml&amp;query=package.version&amp;logo=GitHub&amp;label=GitHub" alt="GitHub" /></a>
+<a href="https://typst.app/universe/package/unofficial-ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Funofficial-ouc-bachelor-thesis&amp;query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&amp;logo=typst&amp;label=Universe&amp;color=%2339cccc" alt="Typst Universe package version badge" /></a>
+<a href="https://github.com/hongjr03/ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhongjr03%2Fouc-bachelor-thesis%2Frefs%2Fheads%2Fmaster%2Ftypst.toml&amp;query=package.version&amp;logo=GitHub&amp;label=GitHub" alt="GitHub repository version badge" /></a>
 
 This package is an unofficial Typst template for Ocean University of China (OUC) bachelor theses.
 
@@ -43,11 +43,9 @@ This package is an unofficial Typst template for Ocean University of China (OUC)
 
 ## 快速开始
 
-> [!IMPORTANT]
-> 非 Windows 用户在编译前请先安装[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)。
+> **重要：** 非 Windows 用户在编译前请先安装[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)。
 
-> [!NOTE]
-> 如需在 typst.app 上使用，请下载[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)，解压后直接上传到论文对应 typst.app 文件夹。
+> **提示：** 如需在 typst.app 上使用，请下载[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)，解压后直接上传到论文对应 typst.app 文件夹。
 
 可以通过 Typst 命令行快速初始化论文项目：
 
@@ -118,7 +116,7 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.2.0
 
 ## 交流群
 
-![group_qrcode](assets/qrcode_1777349536775.jpg)
+![OUC thesis template user group QR code](assets/qrcode_1777349536775.jpg)
 
 ## 许可证
 
