@@ -3,7 +3,7 @@
 #import "@preview/itemize:0.2.0": default-enum-list
 #import "chapnum.typ": chap-num
 #import "three-line-table.typ": three-line-table, continue-table
-#import "@preview/cuti:0.4.0": fakebold, fakeitalic
+#import "@preview/cuti:0.4.0": fakebold, fakeitalic, show-cn-fakebold
 
 #let global-style(
   fonts: (:),
@@ -50,19 +50,13 @@
 
   show math.equation: set text(font: fonts.数学)
 
-  show strong: it => context {
-    if "simsun" in text.font {
-      fakebold(it)
-    } else {
-      it
-    }
-  }
+  show: show-cn-fakebold
+  
   show emph: it => context {
-    if "simsun" in text.font {
+    show regex("[\p{script=Han}！-･〇-〰—]+"): it => {
       fakeitalic(it)
-    } else {
-      it
     }
+    it
   }
 
   body
