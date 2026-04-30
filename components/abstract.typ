@@ -13,7 +13,7 @@
 
     abstract.zh
     parbreak()
-    set text(font: fonts.黑体, size: zh("小四"), weight: "bold")
+    set text(font: fonts.黑体, size: zh("小四"))
     [关键词：] + keywords.zh.join("；")
   })
 
