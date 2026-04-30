@@ -2,8 +2,8 @@
 #import "@preview/zebraw:0.6.3": zebraw, zebraw-init
 #import "@preview/itemize:0.2.0": default-enum-list
 #import "chapnum.typ": chap-num
-#import "three-line-table.typ": three-line-table, continue-table
-#import "@preview/cuti:0.4.0": fakebold, fakeitalic, show-cn-fakebold
+#import "three-line-table.typ": continue-table, three-line-table
+#import "@preview/cuti:0.4.0": fakebold, fakeitalic, regex-fakebold
 
 #let global-style(
   fonts: (:),
@@ -50,8 +50,17 @@
 
   show math.equation: set text(font: fonts.数学)
 
-  show: show-cn-fakebold
-  
+  show text.where(weight: "bold").or(strong): it => context {
+    if "simhei" in text.font {
+      it
+    } else {
+      show regex("[\p{script=Han}！-･〇-〰—]+"): it => {
+        fakebold(it, weight: "regular")
+      }
+      it
+    }
+  }
+
   show emph: it => context {
     show regex("[\p{script=Han}！-･〇-〰—]+"): it => {
       fakeitalic(it)
