@@ -6,6 +6,7 @@
 #import "utils/fonts.typ": fonts as default-fonts, setup-fonts
 #import "@preview/valkyrie:0.2.2" as z
 #import "@preview/gb7714-bilingual:0.2.3": gb7714-bibliography, init-gb7714, multicite
+#import "@preview/pointless-size:0.1.2": zh
 
 #let info-schema = z.dictionary((
   title: z.dictionary((
@@ -108,7 +109,13 @@
 
   pagebreak(weak: true)
 
-  gb7714-bibliography(full: false)
+  gb7714-bibliography(
+    full: false,
+    title: heading(numbering: none, bookmarked: false, outlined: false, text(
+      size: zh("小三"),
+      "参考文献",
+    )),
+  )
 
   acks(acknowledgments)
 }

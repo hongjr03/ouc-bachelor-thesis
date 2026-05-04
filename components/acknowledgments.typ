@@ -2,7 +2,7 @@
 
 #let acknowledgments(body) = {
   pagebreak(weak: true)
-  heading("致谢".clusters().join(h(.5em * 3)), numbering: none)
+  heading(text(size: zh("小三"), "致谢".clusters().join(h(.5em * 3))), numbering: none)
   body
 }
 
