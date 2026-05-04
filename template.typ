@@ -111,7 +111,7 @@
 
   gb7714-bibliography(
     full: false,
-    title: heading(numbering: none, bookmarked: false, outlined: false, text(
+    title: heading(numbering: none, text(
       size: zh("小三"),
       "参考文献",
     )),
