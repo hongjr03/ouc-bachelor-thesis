@@ -131,6 +131,8 @@
   show figure: set block(breakable: false)
   show figure.where(kind: table): set block(breakable: true)
 
+  set figure.caption(separator: h(0.5em))
+
   show figure.caption: set text(size: zh("五号"))
   show table: it => continue-table.update(false) + it
 
