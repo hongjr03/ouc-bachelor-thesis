@@ -80,6 +80,11 @@
     fonts: fonts,
   )
 
+  show math.equation: it => {
+    show <numbering:eq>: set text(size: zh("五号"), font: fonts.西文)
+    it
+  }
+
   body
 }
 
@@ -138,6 +143,7 @@
 
   show figure.caption: set text(size: zh("五号"))
   show table: it => continue-table.update(false) + it
+
 
   body
 }
