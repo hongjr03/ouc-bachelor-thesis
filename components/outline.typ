@@ -7,7 +7,9 @@
       set text(size: zh("四号"))
       link(
         it.element.location(),
-        strong(it.indented(it.prefix(), it.inner())),
+        strong(it.indented(it.prefix(), if it.element.at("numbering", default: none) != none [#it.element.body] else {
+          it.inner()
+        })),
       )
     } else {
       set text(size: zh("小四"))
