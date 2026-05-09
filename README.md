@@ -5,6 +5,9 @@
 
 This package is an unofficial Typst template for Ocean University of China (OUC) bachelor theses.
 
+> [!IMPORTANT]
+> GitHub 仓库中的版本是最新开发版，很可能并不稳定。如果你需要使用该模板撰写论文，请参考[使用该模板前的配置](https://github.com/hongjr03/ouc-bachelor-thesis/wiki/%E4%BD%BF%E7%94%A8%E8%AF%A5%E6%A8%A1%E6%9D%BF%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE)，不要直接拉取仓库。
+
 基于 [Typst](https://typst.app/) 编写的中国海洋大学本科毕业论文模板。根据[中国海洋大学本科毕业论文（设计）撰写规范及附表（2026）](https://jwc.ouc.edu.cn/_upload/article/files/5a/2d/739028b94008954fabb295e513d8/1d6f220a-7701-49c4-8084-16a8f20fb41a.doc) 的要求制作。
 
 ## 效果预览
