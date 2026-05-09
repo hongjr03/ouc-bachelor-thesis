@@ -24,9 +24,9 @@
       let (k, f, n) = cfg
 
       show k: set f(
-        numbering: _ => context {
+        numbering: _ =>  {
           if f == math.equation {
-            [#numbering(
+            [#context numbering(
               n.replace("1", query(heading.where(level: 1).before(here())).last().numbering.first(), count: 1),
               ..(h1-counter.get().first(), counter(k).get()).flatten(),
             )<numbering:eq>]
