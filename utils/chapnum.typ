@@ -16,7 +16,7 @@
     config.map(x => counter(x.first())).map(x => x.update(0)).join()
     it
   }
-  let h1-counter = counter(heading.where(level: 1))
+  let h1-counter = counter(heading)
 
   show: x => config.fold(
     x,
@@ -24,11 +24,17 @@
       let (k, f, n) = cfg
 
       show k: set f(
-        numbering: _ => {
+        numbering: _ => context {
           if f == math.equation {
-            [#numbering(n, ..(h1-counter.get(), counter(k).get()).flatten())<numbering:eq>]
+            [#numbering(
+              n.replace("1", query(heading.where(level: 1).before(here())).last().numbering.first(), count: 1),
+              ..(h1-counter.get().first(), counter(k).get()).flatten(),
+            )<numbering:eq>]
           } else {
-            numbering(n, ..(h1-counter.get(), counter(k).get()).flatten())
+            numbering(
+              n.replace("1", query(heading.where(level: 1).before(here())).last().numbering.first(), count: 1),
+              ..(h1-counter.get().first(), counter(k).get()).flatten(),
+            )
           }
         },
       )

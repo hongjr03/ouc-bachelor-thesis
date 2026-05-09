@@ -5,3 +5,7 @@
 = 或者这里
 
 没了。
+
+#figure([图], caption: "这是一个图")<figgg>
+
+@figgg 是一个图。
