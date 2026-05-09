@@ -39,6 +39,10 @@ This package is an unofficial Typst template for Ocean University of China (OUC)
   <img src="examples/16.png" width="24%" alt="第16页" />
 </p>
 
+<p align="center">
+  <img src="examples/17.png" width="24%" alt="第17页" />
+</p>
+
 
 
 ## 快速开始
@@ -88,6 +92,8 @@ typst init @preview/unofficial-ouc-bachelor-thesis:0.3.0
 
     这段时光中，我要特别感谢指导老师在选题、研究方法和论文写作上的悉心指导；感谢同学和朋友在我碰到问题时给予帮助；最后特别感谢我的父母，感谢你们对我学习生涯的支持与鼓励。
   ],
+  // 可选：如果不需要请注释掉下面这行
+  appendix: include "chapters/03-appendix.typ",
   config: (
     fonts: (
       宋体: "SimSun",
