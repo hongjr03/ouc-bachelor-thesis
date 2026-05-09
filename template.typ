@@ -5,7 +5,7 @@
 #import "components/appendix.typ": appendix as app
 #import "utils/style.typ": apply-style, global-style
 #import "utils/fonts.typ": fonts as default-fonts, setup-fonts
-#import "@preview/valkyrie:0.2.2" as z
+#import "@preview/valkyrie:0.3.0" as z
 #import "@preview/gb7714-bilingual:0.2.3": gb7714-bibliography, init-gb7714, multicite
 #import "@preview/pointless-size:0.1.2": zh
 
