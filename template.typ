@@ -2,6 +2,7 @@
 #import "components/abstract.typ" as a
 #import "components/outline.typ": outline
 #import "components/acknowledgments.typ": acknowledgments as acks
+#import "components/appendix.typ": appendix as app
 #import "utils/style.typ": apply-style, global-style
 #import "utils/fonts.typ": fonts as default-fonts, setup-fonts
 #import "@preview/valkyrie:0.2.2" as z
@@ -30,6 +31,7 @@
   )),
   bibliography: z.any(),
   acknowledgments: z.any(),
+  appendix: z.content(),
 ))
 
 #let project(
@@ -42,6 +44,7 @@
   keywords: (:),
   bibliography: "",
   acknowledgments: [],
+  appendix: [],
   config: (:),
   body,
 ) = {
@@ -56,6 +59,7 @@
       keywords: keywords,
       bibliography: bibliography,
       acknowledgments: acknowledgments,
+      appendix: appendix,
     ),
     info-schema,
   )
@@ -117,4 +121,6 @@
   )
 
   acks(acknowledgments)
+  
+  app(appendix)
 }

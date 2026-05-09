@@ -107,7 +107,7 @@
   show table: three-line-table
 
   show heading.where(level: 1): it => {
-    if counter(heading).get().at(0) > 1 {
+    if counter(heading).get().at(0) > 1 and query(selector(<heading:appendix>).before(here())) == none {
       pagebreak(weak: true)
     }
     it
