@@ -121,6 +121,6 @@
   )
 
   acks(acknowledgments)
-  
-  app(appendix)
+
+  app(appendix, chap-num-config: config.at("numbering", default: ()))
 }

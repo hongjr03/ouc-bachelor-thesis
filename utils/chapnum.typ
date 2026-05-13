@@ -1,4 +1,3 @@
-#import "@preview/pointless-size:0.1.2": zh
 // https://github.com/ParaN3xus/typst-snippets/blob/main/chapnum/chapnum.typ
 
 #let chap-num(
@@ -16,7 +15,7 @@
     config.map(x => counter(x.first())).map(x => x.update(0)).join()
     it
   }
-  let h1-counter = counter(heading)
+  let h-counter = counter(heading)
 
   show: x => config.fold(
     x,
@@ -24,17 +23,15 @@
       let (k, f, n) = cfg
 
       show k: set f(
-        numbering: _ =>  {
+        numbering: _ => {
+          let numberin = numbering(
+            n,
+            ..(h-counter.get().first(), counter(k).get()).flatten(),
+          )
           if f == math.equation {
-            [#context numbering(
-              n.replace("1", query(heading.where(level: 1).before(here())).last().numbering.first(), count: 1),
-              ..(h1-counter.get().first(), counter(k).get()).flatten(),
-            )<numbering:eq>]
+            [#numberin<numbering:eq>]
           } else {
-            numbering(
-              n.replace("1", query(heading.where(level: 1).before(here())).last().numbering.first(), count: 1),
-              ..(h1-counter.get().first(), counter(k).get()).flatten(),
-            )
+            numberin
           }
         },
       )
