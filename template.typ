@@ -83,6 +83,7 @@
   // 全局样式
   show: global-style.with(fonts: resolved-fonts, chap-num-config: config.at("numbering", default: ()))
 
+  counter(page).update(0)
   // 封面
   cover(
     title: title.zh,
@@ -95,6 +96,11 @@
     fonts: resolved-fonts,
   )
 
+  set page(footer: context align(center, {
+    set text(size: zh("小五"))
+    counter(page).display("I")
+  }))
+
   // 摘要
   a.abstract(
     title: title-str,
@@ -102,7 +108,7 @@
     keywords: keywords,
     fonts: resolved-fonts,
   )
-
+  
   // 目录
   outline()
 
