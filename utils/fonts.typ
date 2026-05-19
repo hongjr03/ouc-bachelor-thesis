@@ -17,7 +17,7 @@
 
 #let setup-fonts(fonts) = (
   宋体: ((name: fonts.西文, covers: "latin-in-cjk"), fonts.宋体),
-  黑体: ((name: fonts.西文, covers: "latin-in-cjk"), fonts.黑体),
+  黑体: fonts.黑体,
   楷体: ((name: fonts.西文, covers: "latin-in-cjk"), fonts.楷体),
   仿宋: ((name: fonts.西文, covers: "latin-in-cjk"), fonts.仿宋),
   西文: fonts.西文,
