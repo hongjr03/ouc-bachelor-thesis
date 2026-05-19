@@ -21,6 +21,7 @@
   advisor: z.either(z.string(), z.array(z.string())),
   college: z.string(),
   department: z.string(),
+  defense-date: z.any(),
   abstract: z.dictionary((
     zh: z.any(),
     en: z.any(),
@@ -40,6 +41,7 @@
   advisor: "",
   college: "",
   department: "",
+  defense-date: none,
   abstract: (:),
   keywords: (:),
   bibliography: "",
@@ -55,6 +57,7 @@
       advisor: advisor,
       college: college,
       department: department,
+      defense-date: defense-date,
       abstract: abstract,
       keywords: keywords,
       bibliography: bibliography,
@@ -88,6 +91,7 @@
     advisor: advisor,
     college: college,
     department: department,
+    defense-date: defense-date,
     fonts: resolved-fonts,
   )
 

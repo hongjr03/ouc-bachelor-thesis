@@ -70,11 +70,19 @@
       bold[学部、学院（中心）] + underline-box(college, 1fr),
       bold[年级专业] + underline-box(department, 1fr),
       bold[论文答辩日期]
-        + underline-box("", 0.5fr, stroke: none)
+        + underline-box(
+          if defense-date == none { "" } else { str(defense-date.display("[year]")) },
+          0.5fr,
+          stroke: none,
+        )
         + bold[年]
-        + underline-box("", 0.5fr, stroke: none)
+        + underline-box(
+          if defense-date == none { "" } else { str(defense-date.display("[month]")) },
+          0.5fr,
+          stroke: none,
+        )
         + bold[月]
-        + underline-box("", 0.5fr, stroke: none)
+        + underline-box(if defense-date == none { "" } else { str(defense-date.display("[day]")) }, 0.5fr, stroke: none)
         + bold[日]
     ),
   )
@@ -87,6 +95,7 @@
   advisor: "",
   college: "",
   department: "",
+  defense-date: none,
   fonts: (:),
 ) = page(
   {
@@ -104,6 +113,7 @@
       college: college,
       department: department,
       fonts: fonts,
+      defense-date: defense-date,
     )
 
     v(.2cm)
