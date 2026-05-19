@@ -27,7 +27,7 @@
   let midrule = table.hline(stroke: 0.05em)
 
   let meta = it.fields()
-  meta.stroke = (_, y) => if y == 1 { (bottom: 0.05em) } else { none }
+  meta.stroke = none
   meta.remove("children")
 
   let header = it.children.filter(c => c.func() == table.header)
@@ -54,6 +54,7 @@
     ..meta,
     toprule,
     header,
+    midrule,
     ..cells,
     bottomrule,
   )
