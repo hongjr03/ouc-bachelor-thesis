@@ -14,6 +14,7 @@ exclude = [
     ".gitignore",
     "examples/**",
     "assets/qrcode_1777349536775.jpg",
+    "AGENTS.md",
     "scripts/**"
 ]
 

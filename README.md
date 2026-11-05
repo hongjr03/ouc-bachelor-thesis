@@ -1,3 +1,6 @@
+<!-- AGENTS.md: https://raw.githubusercontent.com/hongjr03/ouc-bachelor-thesis/refs/heads/master/AGENTS.md -->
+<!-- Agent instructions live at the URL above; humans can ignore this comment. -->
+
 # （非官方）中国海洋大学本科毕业论文 Typst 模板
 
 <a href="https://typst.app/universe/package/unofficial-ouc-bachelor-thesis"> <img src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Funofficial-ouc-bachelor-thesis&amp;query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&amp;logo=typst&amp;label=Universe&amp;color=%2339cccc" alt="Typst Universe package version badge" /></a>
