@@ -11,7 +11,12 @@ This package is an unofficial Typst template for Ocean University of China (OUC)
 > [!IMPORTANT]
 > GitHub 仓库中的版本是最新开发版，很可能并不稳定。如果你需要使用该模板撰写论文，请参考[使用该模板前的配置](https://github.com/typst-ouc/bachelor-thesis/wiki/%E4%BD%BF%E7%94%A8%E8%AF%A5%E6%A8%A1%E6%9D%BF%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE)，不要直接拉取仓库。
 
-基于 [Typst](https://typst.app/) 编写的中国海洋大学本科毕业论文模板。根据[中国海洋大学本科毕业论文（设计）撰写规范及附表（2026）](https://jwc.ouc.edu.cn/_upload/article/files/5a/2d/739028b94008954fabb295e513d8/1d6f220a-7701-49c4-8084-16a8f20fb41a.doc) 的要求制作。
+基于 [Typst](https://typst.app/) 编写的中国海洋大学本科毕业论文模板。自 2026 年起根据学校发布的要求制作（对后续毕业年份的要求的适配状态详见 [Wiki](https://github.com/typst-ouc/bachelor-thesis/wiki/Track-For-OUC-Standard)）。
+
+> [!NOTE]
+> 如果你对 Typst 还不了解，可以选择性阅读 [此 README 中的介绍](https://github.com/nju-lug/modern-nju-thesis#%E4%BC%98%E5%8A%BF)。
+> 对于想深度了解 Typst 的特性的用户，建议查阅 [typst 中文社区导航](https://typst.dev/guide/) 和 [小蓝书 Web 版](https://typst.dev/tutorial/)。
+> 一言以蔽之，使用 Typst，你可以像写 Markdown 一样写 LaTeX 风格的文档。
 
 ## 效果预览
 
@@ -53,9 +58,11 @@ This package is an unofficial Typst template for Ocean University of China (OUC)
 
 ## 快速开始
 
-> **重要：** 非 Windows 用户在编译前请先安装[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)。
+> **重要：** 非 Windows 用户在编译前请先安装[中文字体包][zh-fonts]。
 
-> **提示：** 如需在 typst.app 上使用，请下载[中文字体包](https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip)，解压后直接上传到论文对应 typst.app 文件夹。
+> **提示：** 如需在 typst.app 上使用，请下载[中文字体包][zh-fonts]，解压后直接上传到论文对应 typst.app 文件夹。
+
+[zh-fonts]: https://github.com/hongjr03/assets/releases/download/cn-thesis-fonts-2.1-f0dde462e435/cn-thesis-fonts-2.1-f0dde462e435.zip
 
 可以通过 Typst 命令行快速初始化论文项目：
 
